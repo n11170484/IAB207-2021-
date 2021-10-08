@@ -1,0 +1,39 @@
+.jumbotronback{
+    background-size: cover;
+    height: 100%;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.background{
+    background-color: ghostwhite;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.commentimg{
+    width: 30px;
+    height: 30px;
+}
+
+.button1{
+    color: black;
+    Padding: 20px;
+    background-color: blue;
+    border-radius: 4px;
+    margin: 20px;
+    border: 2px solid black;
+
+}
+.category{
+    padding: 20px;
+    font-style: italic;
+
+}
+.pad{
+    padding: 20px;
+}
