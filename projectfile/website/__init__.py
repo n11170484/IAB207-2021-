@@ -41,6 +41,10 @@ def create_app():
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import events
+    app.register_blueprint(events.bp)
+
     
     return app
 
