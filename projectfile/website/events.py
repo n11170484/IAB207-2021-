@@ -15,7 +15,7 @@ def show(id):
     destination = Event.query.filter_by(id=id).first()
     # create the comment form
     cform = CommentForm()
-    return render_template('events.EventPage.html', event=event, #this is the link to our html pages
+    return render_template('events.EventPage.html', #event=event, #this is the link to our html pages
      form=cform)
 
 
@@ -61,8 +61,8 @@ def comment(event):
     destination_obj = Event.query.filter_by(id=event).first()
     if form.validate_on_submit():
         # read the comment from the form
-        comment = Comment(text=form.text.data,
-                          event=event_obj)##### Another way to match HTML to code
+        comment = Comment(text=form.text.data)
+                          #event=event_obj)##### Another way to match HTML to code
         # here the back-referencing works - comment.destination is set
         # and the link is created
         db.session.add(comment)
