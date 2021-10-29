@@ -61,15 +61,15 @@ def comment(event):
     destination_obj = Event.query.filter_by(id=event).first()
     if form.validate_on_submit():
         # read the comment from the form
-        comment = Comment(text=form.text.data)
-                          #event=event_obj)##### Another way to match HTML to code
+        comment = Comment(text=form.text.data,
+                          event=event)
         # here the back-referencing works - comment.destination is set
         # and the link is created
         db.session.add(comment)
         db.session.commit()
 
         # flashing a message which needs to be handled by the html
-        #flash('Your comment has been added', 'success')
-        print('Your comment has been added', 'success')
+        flash('Your comment has been added')
+        #print('Your comment has been added', 'success')
     # using redirect sends a GET request to destination.show
     return redirect(url_for('events.EventPage', id=event))
