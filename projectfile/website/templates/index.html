@@ -44,6 +44,7 @@
           <div class="card-body">
             <h5 class="card-title">{{event.name}}</h5>
             <p class="card-text">{{event.description}}</p>
+            <p class="card-text">{{event.genre}}</p>
             <a href="{{url_for('event.eventpage', id=event.id)}}" class="btn btn-primary">Book Tickets</a>
           </div>
         </div>

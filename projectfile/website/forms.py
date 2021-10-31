@@ -16,6 +16,7 @@ class EventForm(FlaskForm):
     image = FileField('Event Image', validators=[FileRequired(message='Image must be uploaded'), 
     FileAllowed(allowed_file, message='Sorry, only .png and .jpg files allowed')])
     #Event price
+    genre = StringField('Genre', validators=[InputRequired()])
     price = IntegerField('Price', validators=[InputRequired()])
     submit = SubmitField('Create event')
 
