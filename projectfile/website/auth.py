@@ -18,9 +18,9 @@ bp = Blueprint('auth', __name__)
 @bp.route('/login', methods=['GET', 'POST'])
 def authenticate():  # view function
     print('In Login View function')
-     login_form = LoginForm()
-      error = None
-       if(login_form.validate_on_submit() == True):
+    login_form = LoginForm()
+    error = None
+    if(login_form.validate_on_submit() == True):
             user_name = login_form.user_name.data
             password = login_form.password.data
             u1 = User.query.filter_by(name=user_name).first()
@@ -39,4 +39,4 @@ def authenticate():  # view function
                 return redirect(nextp)
             else:
                 flash(error)
-        return render_template('user.html', form=login_form, heading='Login')
+    return render_template('user.html', form=login_form, heading='Login')

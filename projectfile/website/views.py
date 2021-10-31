@@ -14,7 +14,7 @@ def index():
 def search():
     if request.args['search']:
         print(request.args['search'])
-        eve = "%" + request.args['search'] + '%'
+        dest = "%" + request.args['search'] + '%'
         events = Event.query.filter(
             Event.description.like(dest)).all()
         events += Event.query.filter(
