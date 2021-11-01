@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container">  
+    <div class="row mt-5 mb-3">  
+      <div class="col-md-12">  
+        <div class="float-left">  
+          <h1 class="mb-0">{{event.name}}</h1>  
+          <p>{{event.category}}</p>  
+        </div>  
+ 
+        <div class="float-right text-right">  
+          <p class="mb-0">Ticket Price</p>  
+          <h2 id="price">{{event.price}}</h1>  
+        </div>  
+      </div>  
+    </div>  
+ 
+    <!-- Destination --> 
+    <div class="row">  
+      <div class="col-md-12">  
+        <div class="card my-3">  
+          <div class="card-body">  
+            <div class="media">  
+              <img class="card-img-top" src="{{event.image}}">  
+              <div class="media-body">  
+                <small class="font-weight-bold text-muted">{{event.status}}</small>  
+                <h5 class="mt-0">{{event.name}}</h5>  
+                <p>Description: {{event.description}}</p> 
+                <p>Event Date: {{event.event_date}}</p>
+                <p>Venue: {{event.venue}}</p>
+                <p>Available Tickets: {{event.avai_tickets}}</p>
+                <a href="#" class="btn btn-danger">Book Now</a>  
+              </div>  
+            </div>  
+          </div>  
+        </div>  
+      </div>  
+    </div>     
+ 
+   
+ 
+    <hr>  
+ 
+    <!-- Comments -->  
+    <div class="row">  
+      <div class="col-md-12">  
+        <h2>Comments</h1>  
+      </div>  
+    </div>  
+ 
+    <div class="row border-bottom"> 
+      {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}} 
+      {% for comment in event.comments %}
+      <div class="col-md-12">  
+        <b>{{comment.user.name}} <span class="ml-2 text-muted">January 2017</span></b>
+        <p>{{comment.text}}</p>  
+      </div> 
+      {% endfor %} 
+    </div>  
+  </div> 
+
+{% endblock %}
